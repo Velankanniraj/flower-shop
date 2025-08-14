@@ -44,7 +44,7 @@ def init_db():
 
 # Helper functions
 def get_flowers(conn):
-    df = pd.read_sql("SELECT concat(DisplayName,'-',Name) as DisplayName FROM FlowerMaster", conn)
+    df = pd.read_sql("SELECT DisplayName || '-' || Name as DisplayName FROM FlowerMaster", conn)
     return df['DisplayName'].tolist()
 
 def get_customers(conn):
