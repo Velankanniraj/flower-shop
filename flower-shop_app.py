@@ -2,8 +2,8 @@ import streamlit as st
 import sqlite3
 import pandas as pd
 from datetime import datetime, date
-from indic_transliteration import sanscript
-from indic_transliteration.sanscript import transliterate
+#from indic_transliteration import sanscript
+#from indic_transliteration.sanscript import transliterate
 
 # Set page configuration for full-screen layout
 st.set_page_config(layout="wide", page_title="Flower Shop Application", page_icon="🌸")
