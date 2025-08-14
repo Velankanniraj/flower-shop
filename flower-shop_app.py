@@ -76,14 +76,16 @@ def recalculate_debts(conn, buyer_name):
 # Translation helper function
 def translate_to_tamil(name):
     try:
-        from googletrans import Translator
-        translator = Translator()
-        tamil_trans = translator.translate(name, src='en', dest='ta').text
+        from deep_translator import GoogleTranslator
+        tamil_trans = GoogleTranslator(source='en', target='ta').translate(name)
         suggested_words = tamil_trans.split()
         selected_words = st.multiselect("Select Tamil Words", suggested_words, default=suggested_words, key=f"word_select_{name}")
         return " ".join(selected_words) if selected_words else tamil_trans
     except ImportError:
-        st.warning("Please install googletrans: `pip install googletrans==3.1.0a0`")
+        st.warning("Please install deep-translator: `pip install deep-translator`")
+        return name
+    except Exception as e:
+        st.error(f"Translation failed: {str(e)}")
         return name
 
 # Main app
