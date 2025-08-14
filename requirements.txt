@@ -1,0 +1,4 @@
+streamlit==1.37.1  # Latest version as of August 14, 2025
+pandas==2.2.2
+indic-transliteration==2.3.59
+googletrans==3.1.0a0  # Specific version for compatibility
